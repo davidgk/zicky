@@ -1,14 +1,15 @@
-const {compileContract} = require("./src/compiler");
+const {process} = require("./src/compiler");
 /***
  * Should be your contract file name, like zicky.sol
  * @param contractName
+ * @param contractsFolderPath
  * @returns {*}
  */
-const compileIt = (contractName) => {
-    const contract = compileContract(contractName);
+const compileContract = (contractName, contractsFolderPath="contracts") => {
+    const contract = process(contractName, contractsFolderPath);
     return contract[contractName.split('.')[0]];
 }
 
 module.exports = {
-    compileIt
+    compileContract
 }

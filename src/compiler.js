@@ -36,11 +36,11 @@ const getContract = (input, key) => {
     return compiled.contracts[key];
 }
 
-function compileContract(contractFileName) {
+function process(contractFileName, contractsFolderPath) {
     const source = createSource(contractFileName)
     const input = createInput(contractFileName, source)
     return getContract(input, contractFileName);
 }
 
 
-module.exports = { compileContract }
+module.exports = { process }
