@@ -47,7 +47,7 @@ const getContract = (input, key) => {
 }
 
 function process(contractFileName, contractsFolderPath) {
-    const source = createSource(contractFileName)
+    const source = createSource(contractFileName, contractsFolderPath)
     const input = createInput(contractFileName, source)
     return getContract(input, contractFileName);
 }
