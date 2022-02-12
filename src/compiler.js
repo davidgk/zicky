@@ -2,7 +2,17 @@ const solCompiler = require("solc");
 const path = require("path");
 const fs = require("fs");
 
-const createSource = (key, contractsFolderPath = 'contracts') => {
+function validations(key, contractsFolderPath) {
+    if (!key) {
+        throw Error('Contract file name is a required param, should be like yourcontract.sol')
+    }
+    if (!contractsFolderPath) {
+        throw Error('contractsFolderPath is a required param, should be like contracts')
+    }
+}
+
+const createSource = (key, contractsFolderPath ) => {
+    validations(key, contractsFolderPath);
     const reqPath = path.join(__dirname,'../');
     const lotteryPath = path.resolve(reqPath, contractsFolderPath, key);
     return fs.readFileSync(lotteryPath, 'utf8');
