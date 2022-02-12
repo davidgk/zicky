@@ -7,13 +7,13 @@ function validations(key, contractsFolderPath) {
         throw Error('Contract file name is a required param, should be like yourcontract.sol')
     }
     if (!contractsFolderPath) {
-        throw Error('contractsFolderPath is a required param, should be like contracts')
+        throw Error('contractsFolderPath is a required param, under your project folder, should be like \"contracts\"')
     }
 }
 
 const createSource = (key, contractsFolderPath ) => {
     validations(key, contractsFolderPath);
-    const reqPath = path.join(__dirname,'../');
+    const reqPath = path.join(__dirname,'../../../');
     const lotteryPath = path.resolve(reqPath, contractsFolderPath, key);
     return fs.readFileSync(lotteryPath, 'utf8');
 }

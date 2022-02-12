@@ -1,6 +1,6 @@
 {
   "name": "zicky",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Zicky helps you to track errors on your TDD session over smart contracts developed with solidity, Also helps you to deploy them into the Ethereum network you want",
   "main": "zicky.js",
   "scripts": {
