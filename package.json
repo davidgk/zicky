@@ -1,0 +1,25 @@
+{
+  "name": "zicky",
+  "version": "0.0.1",
+  "description": "Zicky helps you to track errors on your TDD session over smart contracts developed with solidity, Also helps you to deploy them into the Ethereum network you want",
+  "main": "zicky.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/davidgk/zicky.git"
+  },
+  "author": "David G Kotlirevsky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidgk/zicky/issues"
+  },
+  "homepage": "https://github.com/davidgk/zicky#readme",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.0.3",
+    "node-fetch": "^3.2.0",
+    "solc": "^0.8.9",
+    "web3": "^1.7.0"
+  }
+}
