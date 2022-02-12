@@ -1,7 +1,8 @@
 {
   "name": "zicky",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Zicky helps you to track errors on your TDD session over smart contracts developed with Solidity, Also helps you to deploy them into the Ethereum network you want. Please take a look to https://github.com/davidgk/zicky#readme",
+
   "main": "zicky.js",
   "scripts": {
     "test": "mocha"
