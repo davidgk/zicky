@@ -12,10 +12,10 @@ const compileContract = (contractName, contractsFolderPath="contracts") => {
     return contract[contractName.split('.')[0]];
 }
 
-const getAbiFromContract = async (contractName, contractsFolderPath="contracts") => {
+const getAbiFromContract = (contractName, contractsFolderPath="contracts") => {
     const abi = compileContract(contractName, contractsFolderPath);
     const fileName = `${contractName.split('.')[0]}.abi.js`
-    const reqPath = path.join(__dirname,'../../../'+fileName);
+    const reqPath = path.join(__dirname,'../../' + fileName);
     fs.writeFile(reqPath, JSON.stringify(abi),  err => {
         if (err) {
             console.error(err)
