@@ -57,6 +57,11 @@ Error: undefinedTypeError: "msg.value" and "callvalue()" can only be used in pay
     at Context.<anonymous> (test/Lottery.test.js:41:28)
 `````
 
+### getAbiForContract 
+
+For your web App you'll need a file which contains the interface wich will interacts with your Contract deployed into ethereum network
+
+
 
 For more examples you can test this example project with a smart contract [lottery-solidity](https://github.com/davidgk/lottery-solidity):
 

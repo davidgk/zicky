@@ -16,7 +16,7 @@ const getAbiFromContract = async (contractName, contractsFolderPath="contracts")
     const abi = compileContract(contractName, contractsFolderPath);
     const fileName = `${contractName.split('.')[0]}.abi.js`
     const reqPath = path.join(__dirname,'../../../'+fileName);
-    fs.writeFile(reqPath, abi,  err => {
+    fs.writeFile(reqPath, JSON.stringify(abi),  err => {
         if (err) {
             console.error(err)
         }
