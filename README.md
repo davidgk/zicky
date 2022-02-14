@@ -1,12 +1,12 @@
 # Zicky
 
-Zicky helps you to track errors on your TDD session over smart contracts developed with Solidity, enhancing the way to find errors.
+Zicky helps you to track errors on your TDD session over smart contracts developed with Solidity, 
+enhancing the way to find errors and avoiding back and forth with remix tool.
 
 ## Requirements for compile
-* We use this to compile Smart contracts developed with Solc 0.8.9
+* We use this to compile Smart contracts developed under Solc 0.8.9
 
-
-## Using Compile Examples within tests
+## Some Examples 
 
 Suppose you have your contract, like Lottery.sol under "contracts" folder
 then to use it you can do something like this, and reuse it for several contracts:
@@ -41,7 +41,7 @@ describe ('Lottery Contract tests', () => {
     ... Your tests! 
 
 ````
-If some Error arise before running your tests, you'll see something like this:
+If something fail arise before running your tests, you'll see something like this:
 `````
 Error: undefinedTypeError: "msg.value" and "callvalue()" can only be used in payable public functions. Make the function "payable" or use an internal function to avoid this error.
   --> Lottery.sol:15:17:
