@@ -1,6 +1,6 @@
 {
   "name": "zicky",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Zicky helps you to track errors on your TDD session over smart contracts developed with Solidity, and avoid the back and forth with Remix tool. Please take a look to https://github.com/davidgk/zicky#readme",
 
   "main": "zicky.js",

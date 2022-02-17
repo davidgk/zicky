@@ -37,7 +37,7 @@ const createInput = (fileKey, content) => {
 const getContract = (input, key) => {
     let compiled = JSON.parse(solCompiler.compile(JSON.stringify(input)))
     if (compiled.errors && compiled.errors.length > 0) {
-        let errors;
+        let errors = "-- Your contract has errors! Please read this carefully --\n";
         for (const error of compiled.errors) {
             errors = errors + `${error.formattedMessage}\n`
         }
