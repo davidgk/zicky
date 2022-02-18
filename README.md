@@ -65,7 +65,35 @@ For your This function helps you to get the ABI part of your contract. Web Apps 
 
 For more examples you can test this example project with a smart contract [lottery-solidity](https://github.com/davidgk/lottery-solidity):
 
+## Requirements for deploy
 
+With zicky you get easily the contract deployed ready to work with your test
+
+````
+const {getDeployManager} = require("zicky");
+
+describe ('Lottery Contract tests', () => {
+    let accounts, lottery, contractDeployer, contractDeployed,  account;
+    beforeEach(async () => {
+        // 
+        contractCompiled = compileLottery();
+        contractDeployer = getDeployManager(contractCompiled)
+        // choose one account, you have 10!
+        
+        account = contractDeployer.accounts[0]
+        
+        // mandatory is account
+        // if contract has parameters in constructor you should add an array
+        // if you want to add money , please add the third param
+        
+        contractDeployed = contractDeployer.deployContract(account)
+        
+        // now you can go against your contract in your tests!
+    })
+    ... Your tests! 
+
+````
+Please take a look this [tests](https://github.com/davidgk/zicky/blob/main/test/deployManager.test.js) to learn about it 
 
 Thanks; I'll tell you a secret; My dream's life is driving a Harley!. If you like this code , help me with something, so I can save money for that!
 You can help me here! [Cafecito](https://cafecito.app/zicky).
