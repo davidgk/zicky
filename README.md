@@ -89,6 +89,8 @@ describe ('Lottery Contract tests', () => {
         contractDeployed = contractDeployer.deployContract(account)
         
         // now you can go against your contract in your tests!
+        // If you need to interact with network like getting balance.
+        const web3 = contractDeployer.getNetwork()
     })
     ... Your tests! 
 

@@ -36,6 +36,9 @@ class DeployManager {
             .send({from: account, gas: this.defaultGas, value});
     }
 
+    getNetwork(){
+        return web3.eth;
+    }
 
 }
 
