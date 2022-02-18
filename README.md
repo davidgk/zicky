@@ -77,7 +77,7 @@ describe ('Lottery Contract tests', () => {
     beforeEach(async () => {
         // 
         contractCompiled = compileLottery();
-        contractDeployer = getDeployManager(contractCompiled)
+        contractDeployer = await getDeployManager(contractCompiled)
         // choose one account, you have 10!
         
         account = contractDeployer.accounts[0]
@@ -86,7 +86,7 @@ describe ('Lottery Contract tests', () => {
         // if contract has parameters in constructor you should add an array
         // if you want to add money , please add the third param
         
-        contractDeployed = contractDeployer.deployContract(account)
+        contractDeployed = await contractDeployer.deployContract(account)
         
         // now you can go against your contract in your tests!
         // If you need to interact with network like getting balance.
