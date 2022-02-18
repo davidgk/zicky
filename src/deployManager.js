@@ -40,6 +40,10 @@ class DeployManager {
         return web3.eth;
     }
 
+    getWeb3Object(){
+        return web3;
+    }
+
 }
 
 /**

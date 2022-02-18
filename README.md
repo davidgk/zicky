@@ -82,7 +82,7 @@ describe ('Lottery Contract tests', () => {
         
         account = contractDeployer.accounts[0]
         
-        // mandatory is account
+        // Account is Mandatory
         // if contract has parameters in constructor you should add an array
         // if you want to add money , please add the third param
         
