@@ -1,8 +1,10 @@
 const {expect} = require('chai');
 const {createDeployer} = require("../src/deployManager");
 const {compileContract} = require("../zicky");
+
 const path = require("path");
 const sinon = require("sinon");
+const {EthereumProvider} = require("ganache");
 
 
 
@@ -84,5 +86,28 @@ describe('deploy Manager test', () => {
                 })
             })
         })
+
+        describe('when we have the deployer ', () => {
+            let preferredAccount, contractDeployed;
+            beforeEach(async () => {
+                pathStub = sinon.stub(path, 'join').returns('.')
+                const compiledContract = compileContract("contractWithoutParams.sol", "test")
+                deployer = await createDeployer(compiledContract )
+                pathStub.restore()
+            })
+            describe('getNetwork', () => {
+                it('we can obtain the getNetwork and use it', async() => {
+                    const network =  await deployer.getNetwork()
+                    expect((await network.getAccounts()).length).to.eq(10)
+                })
+            })
+            describe('getWeb3Object', () => {
+                it('we can use web3 object to manage money units', async() => {
+                    const web3 =  await deployer.getWeb3Object()
+                    expect(web3.utils.toWei("2","ether")).to.eq('2000000000000000000')
+                })
+            })
+        })
+
     });
 })
