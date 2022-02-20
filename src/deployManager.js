@@ -14,7 +14,7 @@ async function configureDeployerAndAccounts(contractCompiled) {
 
 class DeployManager {
 
-    constructor(contractCompiled, contractDeployer, accounts, defaultGas = 1000000) {
+    constructor(contractCompiled, contractDeployer, accounts, defaultGas) {
         this.accounts = accounts
         this.contractCompiled = contractCompiled;
         this.contractDeployer = contractDeployer;
@@ -46,6 +46,12 @@ class DeployManager {
 
 }
 
+function validContract(param, paramName) {
+    if (!param){
+        throw new Error(paramName + " is necessary to build the deployer, please send a valid one!")
+    }
+}
+
 /**
  *
  * @param contractCompiled
@@ -53,6 +59,7 @@ class DeployManager {
  * @returns {Promise<DeployerUnderTest>}
  */
 const createDeployer = async (contractCompiled, defaultGas = 1000000) =>  {
+    validContract(contractCompiled, "Compiled Contract")
     const {accounts, contractDeployed} = await configureDeployerAndAccounts(contractCompiled);
     return new DeployManager(contractCompiled, contractDeployed, accounts, defaultGas)
 }
