@@ -14,8 +14,8 @@ function validations(key, contractsFolderPath) {
 const createSource = (key, contractsFolderPath ) => {
     validations(key, contractsFolderPath);
     const reqPath = path.join(__dirname,'../../../');
-    const lotteryPath = path.resolve(reqPath, contractsFolderPath, key);
-    return fs.readFileSync(lotteryPath, 'utf8');
+    const contractPath = path.resolve(reqPath, contractsFolderPath, key);
+    return fs.readFileSync(contractPath, 'utf8');
 }
 
 const createInput = (fileKey, content) => {
