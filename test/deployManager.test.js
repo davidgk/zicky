@@ -22,7 +22,7 @@ describe('deploy Manager test', () => {
                 })
                 beforeEach(async () => {
                     pathStub = sinon.stub(path, 'join').returns('.')
-                    const compiledContract = compileContract("contractWithoutParams.sol", "test")
+                    const compiledContract = compileContract("contractWithoutParams.sol", "test/testFiles")
                     deployer = await createDeployer(compiledContract)
                 })
                 it('we Can create the deployer', () => {
@@ -72,7 +72,7 @@ describe('deploy Manager test', () => {
             })
             beforeEach(async () => {
                 pathStub = sinon.stub(path, 'join').returns('.')
-                const compiledContract = compileContract("contractWithParams.sol", "test")
+                const compiledContract = compileContract("contractWithParams.sol", "test/testFiles")
                 deployer = await createDeployer(compiledContract)
             })
             describe('when we choose an account', ()=> {
@@ -98,7 +98,7 @@ describe('deploy Manager test', () => {
             })
             beforeEach(async () => {
                 pathStub = sinon.stub(path, 'join').returns('.')
-                const compiledContract = compileContract("contractWithoutParams.sol", "test")
+                const compiledContract = compileContract("contractWithoutParams.sol", "test/testFiles")
                 deployer = await createDeployer(compiledContract )
                 pathStub.restore()
             })

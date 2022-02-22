@@ -14,7 +14,7 @@ describe('zicky general tests', () => {
                 pathStub = sinon.stub(path, 'join').returns('.')
             })
             it('get the contract compiled', () => {
-                const compiledContract = compileContract("contractWithoutParams.sol", "test");
+                const compiledContract = compileContract("contractWithoutParams.sol", "test/testFiles");
                 expect(compiledContract.abi).not.to.be.null;
                 expect(compiledContract.evm.bytecode.object).not.to.be.null;
             })
@@ -24,7 +24,7 @@ describe('zicky general tests', () => {
                 pathStub = sinon.stub(path, 'join').returns('.')
             })
             it('get the contract compiled', () => {
-                const compiledContract = compileContract("severalContracts.sol", "test", "contractOne");
+                const compiledContract = compileContract("severalContracts.sol", "test/testFiles", "contractOne");
                 expect(compiledContract.abi).not.to.be.null;
                 expect(compiledContract.evm.bytecode.object).not.to.be.null;
             })
