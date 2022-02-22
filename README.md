@@ -22,6 +22,50 @@ module.exports = {
     compileLottery
 }
 ````
+If your sol file has several contracts, you should specify which of them you need from there
+
+If you have a sol file "severalContracts.sol":
+````
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract contractOne {
+    address public manager;
+    constructor (){
+        manager = msg.sender;
+    }
+}
+
+contract contractTwo {
+    address public manager;
+    constructor (){
+        manager = msg.sender;
+    }
+}
+
+contract contractThree {
+    address public manager;
+    constructor (){
+        manager = msg.sender;
+    }
+}
+
+````
+
+And you only need for contractThree, you should:
+````
+const {compileContract} = require("zicky");
+
+const compileContractThree = () => {
+    return compileContract('severalContracts.sol', "contracts", "contractThree")
+}
+
+module.exports = {
+    compileContractThree
+}
+````
+
+
 
 Then in your tests or your compiler, you can use it there too:
 Under tests:

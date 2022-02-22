@@ -6,11 +6,12 @@ const {createDeployer} = require("./src/deployManager");
  * Should be your contract file name, like zicky.sol
  * @param contractName
  * @param contractsFolderPath
+ * @param anotherContractWeWont
  * @returns {*}
  */
-const compileContract = (contractName, contractsFolderPath="contracts") => {
+const compileContract = (contractName, contractsFolderPath="contracts", anotherContractWeWont) => {
     const contract = process(contractName, contractsFolderPath);
-    return contract[contractName.split('.')[0]];
+    return anotherContractWeWont ? contract[anotherContractWeWont] : contract[contractName.split('.')[0]];
 }
 /**
  * Create the abi interface to be use in your web app to communicate with Ethereum network
