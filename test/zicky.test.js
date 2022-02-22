@@ -28,6 +28,11 @@ describe('zicky general tests', () => {
                 expect(compiledContract.abi).not.to.be.null;
                 expect(compiledContract.evm.bytecode.object).not.to.be.null;
             })
+            it.skip('2', () => {
+                const compiledContract = compileContract("ContractAUseB.sol", "test/testFiles");
+                expect(compiledContract.abi).not.to.be.null;
+                expect(compiledContract.evm.bytecode.object).not.to.be.null;
+            })
         })
     })
 })
