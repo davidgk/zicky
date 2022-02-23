@@ -1,6 +1,6 @@
 # Zicky
 Zicky helps you to track errors on your TDD session over smart contracts developed with Solidity, 
-enhancing the way to find errors and avoiding back and forth with remix tool.
+enhancing the way to find errors and avoiding most of the time, the back and forth with remix tool.
 
 ## Requirements for compile
 * We use this to compile Smart contracts developed under Solc 0.8.9
@@ -108,6 +108,11 @@ Error: undefinedTypeError: "msg.value" and "callvalue()" can only be used in pay
 For your This function helps you to get the ABI part of your contract. Web Apps will need the interface which will work together with your Contract  and the deployed part into ethereum network
 
 For more examples you can test this example project with a smart contract [lottery-solidity](https://github.com/davidgk/lottery-solidity):
+
+### compileAndPrintContract
+
+Given a contract with one or more contracts insides, zicky will create under `<your project>/build` folder all contracts as
+`<contractName>.json`
 
 ## Requirements for deploy
 

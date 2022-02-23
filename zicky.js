@@ -1,8 +1,8 @@
-const {process} = require("./src/compiler");
-const path = require("path");
-const fs = require("fs");
+const {process, printCompiledContract, printAbi} = require("./src/compiler");
 const {createDeployer} = require("./src/deployManager");
+
 /***
+ * Compile your contract.
  * Should be your contract file name, like zicky.sol
  * @param contractName
  * @param contractsFolderPath
@@ -13,6 +13,19 @@ const compileContract = (contractName, contractsFolderPath="contracts", anotherC
     const contract = process(contractName, contractsFolderPath);
     return anotherContractWeWont ? contract[anotherContractWeWont] : contract[contractName.split('.')[0]];
 }
+
+/***
+ * Print the contract/s compiled into the build folder;CAUTION: Will delete if exist the build folder
+ *
+ * @param contractName
+ * @param contractsFolderPath
+ * @returns {*}
+ */
+const compileAndPrintContract = async (contractName, contractsFolderPath="contracts") => {
+    const contract = process(contractName, contractsFolderPath);
+    await printCompiledContract(contract);
+}
+
 /**
  * Create the abi interface to be use in your web app to communicate with Ethereum network
  * @param contractName
@@ -20,13 +33,7 @@ const compileContract = (contractName, contractsFolderPath="contracts", anotherC
  */
 const getAbiFromContract = (contractName, contractsFolderPath="contracts") => {
     const abi = compileContract(contractName, contractsFolderPath).abi;
-    const fileName = `${contractName.split('.')[0]}.abi.js`
-    const reqPath = path.join(__dirname,'../../' + fileName);
-    fs.writeFile(reqPath, JSON.stringify(abi),  err => {
-        if (err) {
-            console.error(err)
-        }
-    })
+    printAbi(contractName,abi);
 }
 
 /**
@@ -42,5 +49,6 @@ const getDeployManager = async (contractCompiled, defaultGas = 1000000) =>  {
 module.exports = {
     compileContract,
     getAbiFromContract,
-    getDeployManager
+    getDeployManager,
+    compileAndPrintContract
 }

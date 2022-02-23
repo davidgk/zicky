@@ -1,6 +1,7 @@
 const solCompiler = require("solc");
 const path = require("path");
 const fs = require("fs");
+const fse = require("fs-extra");
 
 function validations(key, contractsFolderPath) {
     if (!key) {
@@ -52,5 +53,37 @@ function process(contractFileName, contractsFolderPath) {
     return getContract(input, contractFileName);
 }
 
+function removeBuildFolder(buildFolderPath) {
+    if (fse.exists(buildFolderPath)) {
+        fse.removeSync(buildFolderPath)
+    }
+}
 
-module.exports = { process }
+
+const printCompiledContract = async (compiledContract) => {
+    const keys = Object.keys(compiledContract || {})
+    if (!compiledContract || !keys.length) throw new Error("compiledContract to print is mandatory")
+    const basePath = path.join(__dirname,'../../../');
+    const buildPath = basePath + "build";
+    removeBuildFolder(buildPath);
+    fse.ensureDirSync(buildPath);
+    keys.forEach((key) => {
+        const value = compiledContract[key];
+        fse.outputFileSync(
+            path.resolve(buildPath, key+ ".json"),
+            JSON.stringify(value)
+        )
+    })
+}
+
+function printAbi(contractName, abi) {
+    const fileName = `${contractName.split('.')[0]}.abi.js`
+    const reqPath = path.join(__dirname, '../../../');
+    fse.outputFileSync(
+        path.resolve(reqPath +  fileName),
+        JSON.stringify(abi)
+    )
+}
+
+
+module.exports = { printCompiledContract, process, printAbi }
