@@ -64,7 +64,7 @@ const printCompiledContract = async (compiledContract) => {
     const keys = Object.keys(compiledContract || {})
     if (!compiledContract || !keys.length) throw new Error("compiledContract to print is mandatory")
     const basePath = path.join(__dirname,'../../../');
-    const buildPath = basePath + "build";
+    const buildPath = basePath + "buildContract";
     removeBuildFolder(buildPath);
     fse.ensureDirSync(buildPath);
     keys.forEach((key) => {

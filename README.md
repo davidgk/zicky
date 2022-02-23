@@ -111,7 +111,7 @@ For more examples you can test this example project with a smart contract [lotte
 
 ### compileAndPrintContract
 
-Given a contract with one or more contracts insides, zicky will create under `<your project>/build` folder all contracts as
+Given a contract with one or more contracts insides, zicky will create under `<your project>/buildContract` folder all contracts as
 `<contractName>.json`
 
 ## Requirements for deploy

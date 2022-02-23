@@ -59,7 +59,7 @@ describe('zicky general tests', () => {
             pathStub = sinon.stub(path, 'join').returns('./')
         })
         describe('When we have some contracts into a file', () =>{
-            const BUILD_PATH = "./build";
+            const BUILD_PATH = "./buildContract";
             beforeEach(() => {
                 removeBuildFolder(BUILD_PATH);
             })
